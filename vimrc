@@ -3,6 +3,12 @@
 " 2021
 "
 
+call plug#begin('~/.vim/plugged')
+  Plug 'preservim/nerdtree'
+  Plug 'mattn/emmet-vim'
+call plug#end()
+let g:user_emmet_leader_key=','
+
 syntax on
 set title
 set visualbell
@@ -44,42 +50,8 @@ inoremap jk <ESC>
 nmap <CR> o<ESC> 
 nnoremap <esc><esc> :silent! nohls<cr>
 
-"Declare Coc Extensions
-let g:coc_global_extensions = ['coc-ultisnips', 'coc-json', 'coc-java', 'coc-html', 'coc-css', 'coc-yaml', 'coc-highlight', 'coc-angular']
-
-call plug#begin('~/.vim/plugged')
-
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'morhetz/gruvbox'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'vim-airline/vim-airline'
-
-call plug#end()
-
-
-colorscheme gruvbox
-set background=dark
-let g:airline_powerline_fonts = 1
-
-let mapleader = ","
-noremap <leader>w :w<cr>
-noremap <leader>q :q<cr>
-noremap <leader>gs :CocSearch 
-"Open FZF searching the current directory
-noremap <leader>fs :Files %:p:h<cr> 
-
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-"Remap <C-n> and <C-p> for scroll float windows/popups.
-if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-n> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-n>"
-  nnoremap <silent><nowait><expr> <C-p> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-p>"
-  inoremap <silent><nowait><expr> <C-n> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-p> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-n> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-n>"
-  vnoremap <silent><nowait><expr> <C-p> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-p>"
-endif
+" Use ctrl-[hjkl] to select the active split!
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>

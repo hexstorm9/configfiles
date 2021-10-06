@@ -6,7 +6,7 @@
 ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 
 ## Close active application
-hyper - backspace : $(yabai -m window $(yabai -m query --windows --window | jq -re ".id") --close)
+#hyper - backspace : $(yabai -m window $(yabai -m query --windows --window | jq -re ".id") --close)
 
 # test a command
 # lshift - x : terminal-notifier -message "lshift - x"
@@ -27,8 +27,8 @@ hyper - 0x21 : yabai -m window --swap east
 #ctrl + cmd - 3 : yabai -m window --display 3 yabai -m display --focus 3
 
 ## send window to monitor and follow focus
-hyper - u : /Users/biel.carpi/CustomScripts/YabaiScripts/moveWindowLeftAndFollowFocus.sh
-hyper - p : /Users/biel.carpi/CustomScripts/YabaiScripts/moveWindowRightAndFollowFocus.sh
+hyper - u : /Users/bielcarpi/CustomScripts/YabaiScripts/moveWindowLeftAndFollowFocus.sh
+hyper - p : /Users/bielcarpi/CustomScripts/YabaiScripts/moveWindowRightAndFollowFocus.sh
 
 ## increase window size
 hyper + rshift - h : yabai -m window --resize left:-50:0
